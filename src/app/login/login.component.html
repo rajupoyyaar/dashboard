@@ -1,0 +1,44 @@
+<div> 
+<label>Enter Name</label>
+<input type = "text"[(ngModel)]="loginForm.name"><br>
+<span *ngIf="validation.nameError">Invalid name</span><br>
+<label>Enter dob</label>
+<input type = "date"[(ngModel)]="loginForm.dob"><br>
+<span *ngIf="validation.dobError">Invalid dob</span><br>
+<label>Enter designation</label>
+<input type = "text"[(ngModel)]="loginForm.designation"><br>
+<span *ngIf="validation.designationError">Invalid designation</span><br>
+<label>Enter location</label>
+<input type = "text"[(ngModel)]="loginForm.location"><br>
+<span *ngIf="validation.locationError">Invalid location</span><br>
+<button (click)="submit()">submit</button><br><br>
+</div>
+
+   
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Designation</th>
+                <th>location</th>
+                <th>action</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employeeList">
+                <td>{{employee.name}}</td>
+                <td>{{employee.dob}}</td>
+                <td>{{employee.designation}}</td>
+                <td>{{employee.location}}</td>
+                <td><button (click) = "onDelete()">delete</button></td>
+            
+                
+            </tr>
+
+        </tbody>
+    </table>
+
+    
+    

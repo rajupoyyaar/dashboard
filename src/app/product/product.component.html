@@ -1,0 +1,48 @@
+<div>
+<label>Product ID : </label>
+<input type = "number" [(ngModel)]="productForm.productId"><br>
+<span *ngIf = "productValidation.id">enter your product Id</span><br><br>
+<label>Product Name : </label>
+<input type = "text" [(ngModel)]="productForm.productName"><br>
+<span *ngIf = "productValidation.name">enter your name</span><br><br>
+<label>Product Price : </label>
+<input type = "number" [(ngModel)]="productForm.productPrice"><br>
+<span *ngIf = "productValidation.price">enter your product price</span><br><br>
+<label>Product Description : </label>
+<input type = "textarea" [(ngModel)]="productForm.productDescription"><br>
+<span *ngIf = "productValidation.description">enter your product description</span><br><br>
+<button (click)="addProduct()">Add product</button><br><br>
+<span>available product {{availableProducts.length}}</span><br><br>
+<button (click)="lowPrice()">sort by low price</button><br>
+<button (click)="highPrice()">sort by high price</button><br><br>
+<label>search product by name</label>
+<input type = "text" [(ngModel)]="productName" (input)="search()"><br>
+{{productName}}<br><br>
+</div>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let available of availableProducts">
+                <td>{{available.productId}}</td>
+                <td>{{available.productName}}</td>
+                <td>{{available.productPrice}}</td>
+                <td>{{available.productDescription}}</td>
+                <td (click)="onDelete(index)">delete</td>
+            </tr>
+            
+        </tbody>
+        <div *ngIf="!availableProducts.length">
+            No Products Available
+        </div>
+    </table>
+</div>
