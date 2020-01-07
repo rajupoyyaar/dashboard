@@ -1,4 +1,6 @@
-<div> 
+<div>
+<button (click)="onClick()">submit</button><br>
+<div *ngIf = "toogle">
 <label>Enter Name</label>
 <input type = "text"[(ngModel)]="loginForm.name"><br>
 <span *ngIf="validation.nameError">Invalid name</span><br>
@@ -32,11 +34,8 @@
                 <td>{{employee.dob}}</td>
                 <td>{{employee.designation}}</td>
                 <td>{{employee.location}}</td>
-                <td><button (click) = "onDelete()">delete</button></td>
-            
-                
+                <td><button (click) = "onDelete(index)">delete</button></td>
             </tr>
-
         </tbody>
     </table>
 
